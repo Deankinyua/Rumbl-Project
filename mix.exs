@@ -33,8 +33,7 @@ defmodule Rumbl.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.7.11"},
-      {:spike_liveview, "~> 0.2"},
-      {:spike, "~> 0.2"},
+      {:pbkdf2_elixir, "~> 2.0"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
       {:postgrex, ">= 0.0.0"},
