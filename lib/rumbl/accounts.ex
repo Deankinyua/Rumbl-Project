@@ -1,27 +1,39 @@
+# When we’re designing the business logic for our accounts, we need to decide*
+# * what’s public and what’s private. The Accounts module itself is the only public
+# * API our controllers (or any other external components) should touch, but that
+# * doesn’t mean all logic related to accounts should live there.
+
 defmodule Rumbl.Accounts do
   @moduledoc """
   The Accounts context.
   """
 
+  alias Rumbl.Repo
   alias Rumbl.Accounts.User
 
-  def list_users do
-    [
-      %User{id: "1", name: "José", username: "josevalim"},
-      %User{id: "2", name: "Bruce", username: "redrapids"},
-      %User{id: "3", name: "Chris", username: "chrismccord"}
-    ]
+  def get_user(id) do
+    Repo.get(User, id)
   end
 
-  def get_user(id) do
-    Enum.find(list_users(), fn map -> map.id == id end)
+  def get_user!(id) do
+    Repo.get!(User, id)
   end
 
   def get_user_by(params) do
-    Enum.find(list_users(), fn map ->
-      Enum.all?(params, fn {key, val} -> Map.get(map, key) == val end)
-    end)
+    Repo.get_by(User, params)
   end
 
-  25
+  def list_users do
+    Repo.all(User)
+  end
+
+  def change_user(%User{} = user) do
+    User.changeset(user, %{})
+  end
+
+  def create_user(attrs \\ %{}) do
+    %User{}
+    |> User.changeset(attrs)
+    |> Repo.insert()
+  end
 end

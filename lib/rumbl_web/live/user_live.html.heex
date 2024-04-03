@@ -1,0 +1,7 @@
+<.simple_form :let={f} for={@form} phx-submit="save">
+    <.input type="text" field={f[:username]} label="Username"/>
+    <.input type="text" field={f[:name]} label="Name"/>
+    <:actions>
+        <.button>Create</.button>
+    </:actions>
+</.simple_form>   
