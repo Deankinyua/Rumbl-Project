@@ -1,5 +1,5 @@
 defmodule RumblWeb.Router do
-  # alias RumblWeb.UserController
+  # import RumblWeb.UserController
   use RumblWeb, :router
 
   pipeline :browser do
@@ -9,6 +9,8 @@ defmodule RumblWeb.Router do
     plug :put_root_layout, html: {RumblWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug RumblWeb.Auth
+    # plug :authenticate
   end
 
   pipeline :api do
