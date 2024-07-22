@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :rumbl, Rumbl.Repo,
-  username: "postgres",
+  username: "dean",
   password: "kamanu254",
   hostname: "localhost",
   database: "rumbl_dev",
