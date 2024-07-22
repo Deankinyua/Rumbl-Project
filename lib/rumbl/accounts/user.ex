@@ -1,4 +1,10 @@
 defmodule Rumbl.Accounts.User do
+  @moduledoc """
+  # * This is the User Schema and represents the core
+  # * Migrations are also part of the core
+  # * Home of code that is certain
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

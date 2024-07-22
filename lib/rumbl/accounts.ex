@@ -6,6 +6,8 @@
 defmodule Rumbl.Accounts do
   @moduledoc """
   The Accounts context.
+  This is the Api through which external input can make its way into our Application
+  Responsible fot managing uncertainty, external interfaces
   """
 
   alias Rumbl.Repo
