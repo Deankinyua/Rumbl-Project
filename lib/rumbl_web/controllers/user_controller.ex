@@ -19,14 +19,14 @@ defmodule RumblWeb.UserController do
 
   defp authenticate(conn, _options) do
     # conn.private.phoenix_action
-      if conn.assigns.current_user do
-        conn
-      else
-        conn
-        |> put_flash(:error, "You must be logged in to access that page")
-        |> redirect(to: ~p"/")
-        |> halt()
-      end
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: ~p"/")
+      |> halt()
+    end
 
     # IO.inspect(options)
   end
